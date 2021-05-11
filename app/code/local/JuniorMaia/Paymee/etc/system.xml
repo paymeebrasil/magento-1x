@@ -73,7 +73,7 @@
                         </x_api_token>
                         <max_age>
                             <label>Max Age</label>
-                            <comment>Informe o prazo maximo para pagamento em minutos. Padrão: 2880 (48h)</comment>
+                            <comment>Informe o prazo máximo para pagamento em minutos. Padrão: 2880 (48h)</comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>25</sort_order>
                             <show_in_default>1</show_in_default>

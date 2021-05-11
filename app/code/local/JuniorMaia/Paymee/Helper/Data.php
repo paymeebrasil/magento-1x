@@ -8,10 +8,8 @@ class JuniorMaia_Paymee_Helper_Data extends Mage_Core_Helper_Abstract
         $banks = array(
             array('code' => '001', 'name' => '001 - Banco do Brasil S.A',               'value' => 'BB_TRANSFER'),
             array('code' => '237', 'name' => '237 - Banco Bradesco S.A',                'value' => 'BRADESCO_TRANSFER'),
-            array('code' => '341', 'name' => '341 - Banco Itaú-Unibanco S.A (Generic)', 'value' => 'ITAU_TRANSFER_GENERIC'),
-            array('code' => '341', 'name' => '341 - Banco Itaú-Unibanco S.A (PF)',      'value' => 'ITAU_TRANSFER_PF'),
-            array('code' => '341', 'name' => '341 - Banco Itaú-Unibanco S.A (PJ)',      'value' => 'ITAU_TRANSFER_PJ'),
-            array('code' => '341', 'name' => '341 - Banco Itaú-Unibanco S.A (DI)',      'value' => 'ITAU_DI'),
+            array('code' => '341', 'name' => '341 - Banco Itaú-Unibanco S.A ',          'value' => 'ITAU_TRANSFER_GENERIC'),
+            array('code' => '341', 'name' => '341 - Depósito Identificado Itaú',         'value' => 'ITAU_DI'),
             array('code' => '104', 'name' => '104 - Caixa Econômica Federal',           'value' => 'CEF_TRANSFER'),
             array('code' => '202', 'name' => '202 - Banco Original S.A',                'value' => 'ORIGINAL_TRANSFER'),
             array('code' => '033', 'name' => '033 - Banco Santander S.A (Transfer)',    'value' => 'SANTANDER_TRANSFER'),
@@ -35,6 +33,14 @@ class JuniorMaia_Paymee_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getEnvironmentSandbox() {
         if (Mage::getStoreConfig('payment/juniormaia_paymee/sandbox')){
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    public function getCommentOrder() {
+        if (Mage::getStoreConfig('payment/juniormaia_paymee/order_comment')){
             return true;
         } else{
             return false;
