@@ -20,6 +20,12 @@ Banks:
 - [PHP 5.6+](https://www.php.net)
 - [Magento 1.9.x](https://magento.com/tech-resources/download)
 
+## OSC Compatibles
+- Inovarti Onestep Checkout
+- Firecheckout
+- Moip Checkout
+- Onepage
+
 ## Modman Instalation
 modman: https://github.com/jrmaia/modman
 
