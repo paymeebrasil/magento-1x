@@ -32,6 +32,11 @@
             <juniormaia_paymee>
                 <class>JuniorMaia_Paymee_Block</class>
             </juniormaia_paymee>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_grid>JuniorMaia_Paymee_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
+                </rewrite>
+            </adminhtml>
         </blocks>
         <helpers>
             <juniormaia_paymee>
