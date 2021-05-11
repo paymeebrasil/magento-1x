@@ -82,7 +82,7 @@ class JuniorMaia_Paymee_CheckoutController extends Mage_Core_Controller_Front_Ac
                 $_lastOrder->save();
 
                 if (Mage::helper('juniormaia_paymee')->getCommentOrder()) {
-                    $_lastOrder->addStatusHistoryComment($response_payload);
+                    $_lastOrder->addStatusHistoryComment($response["response_payload"]);
                     $_lastOrder->save();
                 }
 
