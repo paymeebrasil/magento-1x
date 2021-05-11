@@ -21,4 +21,16 @@
             <block type="checkout/onepage_success" name="checkout.success.paymee" template="juniormaia/paymee/success.phtml"/>
         </reference>
     </checkout_onepage_success>
+    <onepagecheckout_index_success>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/juniormaia/paymee/styles.css</name>
+                <params/>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="checkout/onepage_success" name="checkout.success.paymee" template="juniormaia/paymee/success.phtml"/>
+        </reference>
+    </onepagecheckout_index_success>
 </layout>

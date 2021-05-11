@@ -112,7 +112,7 @@
                 <log>1</log>
                 <order_comment>1</order_comment>
                 <max_age>2880</max_age>
-                <title>PayMee</title>
+                <title>PayMee - Transferência</title>
                 <payment_action>sale</payment_action>
                 <allowspecific>0</allowspecific>
                 <sort_order>1</sort_order>
