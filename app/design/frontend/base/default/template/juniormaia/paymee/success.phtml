@@ -1,0 +1,42 @@
+<div class="paymee-instructions">
+    <?php $paymeeInstructions = Mage::getSingleton('core/session')->getData('paymee_instructions'); ?>
+    <?php
+    $responsePaymee = json_decode($paymeeInstructions, true);
+
+    if(!array_key_exists('response', $responsePaymee)) {
+        die(__METHOD__);
+    }
+
+    $body =  $responsePaymee['response'];
+
+    if(!isset($body['instructions']) ||
+        empty($body['instructions']['beneficiary_branch'])) {
+        die(__METHOD__);
+    }
+
+    $steps = $body['instructions']['steps'];
+    ?>
+    <div class="instructions">
+        <p><strong><h1>Dados para transferência</h1></strong></p>
+        <ul>
+            <li><span>Banco: <strong><?php echo $body['instructions']['name'] ?></strong></span></li>
+            <li><span>Agência: <strong><?php echo $body['instructions']['beneficiary_branch'] ?></strong></span></li>
+            <li><span>Conta-Corrente: <strong><?php echo $body['instructions']['beneficiary_account'] ?></strong></span></li>
+            <li><span>Favorecido: <strong><?php echo $body['instructions']['beneficiary_name'] ?></strong></span></li>
+            <li><span>Valor: <strong>R$ <?php echo number_format($body['amount'], 2, ',', '.') ?></strong></span></li>
+        </ul>
+    </div>
+    <div class="advice">
+        <span>Realize a transferência bancária no valor exato do seu pedido.</span>
+    </div>
+    <div class="buttons-set">
+        <a type="button" title="<?php echo $this->__('IR PARA INTERNET BANKING') ?>" class="button"
+           href="<?php echo $body['instructions']['redirect_urls']['desktop'] ?>" target="_blank">
+            <span>
+                <span>
+                    <?php echo $this->__('IR PARA INTERNET BANKING') ?>
+                </span>
+            </span>
+        </a>
+    </div>
+</div>
