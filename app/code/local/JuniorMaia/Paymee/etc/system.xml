@@ -72,7 +72,7 @@
                             <show_in_store>0</show_in_store>
                         </x_api_token>
                         <max_age>
-                            <label>max age (prazo máximo para pagamento)</label>
+                            <label>Max Age</label>
                             <comment>Informe o prazo maximo para pagamento em minutos. Padrão: 2880 (48h)</comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>25</sort_order>
