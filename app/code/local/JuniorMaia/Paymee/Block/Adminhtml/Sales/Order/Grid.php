@@ -17,5 +17,12 @@ class JuniorMaia_Paymee_Block_Adminhtml_Sales_Order_Grid extends Mage_Adminhtml_
                 'url'   => $this->getUrl('adminhtml/paymee/cancel')
             )
         );
+
+        $this->getMassactionBlock()->addItem(
+            'refundids',
+            array('label' => $this->__('PayMee - Reembolso'),
+                'url'   => $this->getUrl('adminhtml/paymee/refund')
+            )
+        );
     }
 }
