@@ -69,6 +69,15 @@
         </resources>
 
         <events>
+            <sales_order_creditmemo_save_after>
+                <observers>
+                    <juniormaia_paymee_observer>
+                        <type>singleton</type>
+                        <class>juniormaia_paymee/observer</class>
+                        <method>refundOrder</method>
+                    </juniormaia_paymee_observer>
+                </observers>
+            </sales_order_creditmemo_save_after>
         </events>
 
     </global>
