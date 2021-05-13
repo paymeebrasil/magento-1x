@@ -6,7 +6,7 @@ class JuniorMaia_Paymee_Helper_Data extends Mage_Core_Helper_Abstract
     public function getBanks() {
 
         $banks = array(
-            array('code' => '0', 'name' => 'PIX',                                       'value' => 'PIX'),
+            //array('code' => '0', 'name' => 'PIX',                                       'value' => 'PIX'),
             array('code' => '001', 'name' => '001 - Banco do Brasil S.A',               'value' => 'BB_TRANSFER'),
             array('code' => '237', 'name' => '237 - Banco Bradesco S.A',                'value' => 'BRADESCO_TRANSFER'),
             array('code' => '341', 'name' => '341 - Banco Itaú-Unibanco S.A ',          'value' => 'ITAU_TRANSFER_GENERIC'),

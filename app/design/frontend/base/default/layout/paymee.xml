@@ -2,20 +2,14 @@
 <layout version="0.1.0">
     <checkout_onepage_index translate="label">
         <reference name="head">
-            <action method="addItem">
-                <type>skin_css</type>
-                <name>css/juniormaia/paymee/style.css</name>
-                <params/>
-            </action>
+            <action method="addItem"><type>skin_css</type><name>css/juniormaia/paymee/style.css</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/juniormaia/paymee/paymee.js</name></action>
         </reference>
     </checkout_onepage_index>
     <checkout_onepage_success>
         <reference name="head">
-            <action method="addItem">
-                <type>skin_css</type>
-                <name>css/juniormaia/paymee/style.css</name>
-                <params/>
-            </action>
+            <action method="addItem"><type>skin_css</type><name>css/juniormaia/paymee/style.css</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/juniormaia/paymee/paymee.js</name></action>
         </reference>
         <reference name="content">
             <block type="checkout/onepage_success" name="checkout.success.paymee" template="juniormaia/paymee/success.phtml"/>
@@ -23,22 +17,11 @@
     </checkout_onepage_success>
     <onepagecheckout_index_success>
         <reference name="head">
-            <action method="addItem">
-                <type>skin_css</type>
-                <name>css/juniormaia/paymee/styles.css</name>
-                <params/>
-            </action>
+            <action method="addItem"><type>skin_css</type><name>css/juniormaia/paymee/style.css</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/juniormaia/paymee/paymee.js</name></action>
         </reference>
         <reference name="content">
             <block type="checkout/onepage_success" name="checkout.success.paymee" template="juniormaia/paymee/success.phtml"/>
         </reference>
     </onepagecheckout_index_success>
-    <!--
-        <checkout_onepage_success>
-            <reference name="content">
-                <block type="checkout/onepage_success" name="checkout.success" template="checkout/success.phtml" >
-                    <block type="core/template" name="checkout.success.paymee" template="juniormaia/paymee/success.phtml"/>
-                </block>
-            </reference>
-        </checkout_onepage_success> -->
 </layout>

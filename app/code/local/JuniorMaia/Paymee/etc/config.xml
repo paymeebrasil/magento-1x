@@ -126,6 +126,12 @@
                 <allowspecific>0</allowspecific>
                 <sort_order>1</sort_order>
             </juniormaia_paymee>
+            <juniormaia_paymee_pix>
+                <model>juniormaia_paymee/pix</model>
+                <active>1</active>
+                <title>PayMee - Pix</title>
+                <payment_action>sale</payment_action>
+            </juniormaia_paymee_pix>
         </payment>
     </default>
 </config>

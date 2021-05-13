@@ -47,12 +47,15 @@ class JuniorMaia_Paymee_CheckoutController extends Mage_Core_Controller_Front_Ac
                     "type"      => "MOBILE",
                     "number"    => $_lastOrder->getBillingAddress()->getTelephone(),
                 ),
-                "bankDetails" => array(
-                    "branch"    => $agencia,
-                    "account"   => $conta,
-                )
             )
         );
+
+        if ($paymentMethod != 'PIX') {
+            $data["shopper"]["bankDetails"] = array(
+                "branch"    => $agencia,
+                "account"   => $conta,
+            );
+        }
 
         Mage::helper('juniormaia_paymee')->logs(" ----- Enviando Dados API ------");
         Mage::helper('juniormaia_paymee')->logs($data);
@@ -87,7 +90,6 @@ class JuniorMaia_Paymee_CheckoutController extends Mage_Core_Controller_Front_Ac
                 }
 
                 Mage::getSingleton('core/session')->setData('paymee_instructions', $response["response_payload"]);
-
             }
         }
 
