@@ -65,27 +65,16 @@
                     <span class="subtitles">Abra o app do seu banco no celular, escolha Pix e aponte a câmera para o código</span>
                 </div>
                 <div class="box">
-                    <button class="btn-paymee" onclick="copyPlain()">Copiar Código</button>
+                    <button class="btn btn-paymee" data-clipboard-text="<?php echo $plain; ?>">
+                        Copiar Código
+                    </button>
                 </div>
             </div>
 
             <div class="alert" id="alert">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                <strong>Sucesso!</strong> Seu pagamento via PIX foi confirmado!
+                <strong>Sucesso!</strong> Seu pagamento foi realizado!
             </div>
         </div>
-
-
-
     <?php endif; ?>
 </div>
-
-<script>
-    function copyPlain() {
-        var copyText = document.getElementById("plain");
-        copyText.select();
-        copyText.setSelectionRange(0, 99999)
-        document.execCommand("copy");
-        alert("Código para pagamento copiado com sucesso!");
-    }
-</script>
