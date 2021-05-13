@@ -2,20 +2,22 @@
     <?php $paymeeInstructions = Mage::getSingleton('core/session')->getData('paymee_instructions'); ?>
     <?php
     $responsePaymee = json_decode($paymeeInstructions, true);
-
-    $body   =  $responsePaymee['response'];
-    $steps  = $body['instructions']['steps'];
-    $uuid   = $body['uuid'];
+    $body           =  $responsePaymee['response'];
+    $steps          = $body['instructions']['steps'];
+    $uuid           = $body['uuid'];
+    $qrcode         = $body['instructions']['qrCode']['url'];
+    $plain          = $body['instructions']['qrCode']['plain'];
     ?>
-    <div class="instructions">
 
-        <?php if ($body['instructions']['name'] != 'PIX'): ?>
+    <input type="text" class="paymee-textBox" value="<?php echo $body['instructions']['name']; ?>" id="paymee-method">
+    <input type="text" class="paymee-textBox" value="<?php echo $plain; ?>" id="plain">
+    <input type="text" class="paymee-textBox" value="<?php echo $uuid; ?>" id="uuid">
+    <input type="text" class="paymee-textBox" value="<?php echo Mage::getUrl('paymee/checkout/checkPix', array('_secure' => true)); ?>" id="paymee-url">
+    <input type="text" class="paymee-textBox" value="<?php echo Mage::getUrl('customer/account/'); ?>" id="customer-url">
+
+    <?php if ($body['instructions']['name'] != 'PIX'): ?>
+        <div class="instructions">
             <h1>Dados para transferência</h1>
-        <?php else: ?>
-            <h1>Pagamento via PIX</h1>
-        <?php endif; ?>
-
-        <?php if ($body['instructions']['name'] != 'PIX'): ?>
             <ul>
                 <li><span>Banco: <strong><?php echo $body['instructions']['name'] ?></strong></span></li>
                 <li><span>Agência: <strong><?php echo $body['instructions']['beneficiary_branch'] ?></strong></span></li>
@@ -36,49 +38,43 @@
                     </a>
                 </div>
             </ul>
-        <?php else: ?>
-            <?php
-            $qrcode = $body['instructions']['qrCode']['url'];
-            $plain  = $body['instructions']['qrCode']['plain'];
-            ?>
-            <div class="box-paymee">
-                <img
-                        id='barcode'
-                        class="paymee-img-qr"
-                        src="https://api.qrserver.com/v1/create-qr-code/?data='<?php echo $qrcode; ?>'&amp;size=200x200"
-                        alt=""
-                        title="PayMee"
-                        width="200"
-                        height="200" />
-                <span class="qr-subtitle">Ler com seu aplicativo bancário</span>
-            </div>
-            <div class="box-paymee">
-                <img
-                        src="https://www.bcb.gov.br/content/estabilidadefinanceira/piximg/logo_pix.png"
-                        class="paymee-img-pix"
-                        width="280"
-                        height="100"
-                />
+        </div>
+    <?php else: ?>
+        <div class="payment-pix">
+            <div class="container" id="container">
+                <div class="box">
+                    <h1>Pagamento via PIX</h1>
+                </div>
+
+                <div class="box">
+                    <img src="https://www.bcb.gov.br/content/estabilidadefinanceira/piximg/logo_pix.png" class="paymee-img-pix" width="180" height="64"/>
+                </div>
+
+                <div class="box">
+                    <span class="tempo" id="tempo">Tempo restante 10:00 minutos</span>
+                </div>
+
+                <div class="box">
+                    <img id='barcode' class="paymee-img-qr" src="https://api.qrserver.com/v1/create-qr-code/?data='<?php echo $qrcode; ?>'&amp;size=180x180" title="PayMee" width="200" height="200" />
+                </div>
+
+                <div class="box">
+                    <span class="title"><strong>Escaneie o código com o seu celular</strong></span>
+                </div>
+                <div class="box">
+                    <span class="subtitles">Abra o app do seu banco no celular, escolha Pix e aponte a câmera para o código</span>
+                </div>
+                <div class="box">
+                    <button class="btn-paymee" onclick="copyPlain()">Copiar Código</button>
+                </div>
             </div>
 
-            <input type="text" class="paymee-textBox" value="<?php echo $body['instructions']['name']; ?>" id="paymee-method">
-            <input type="text" class="paymee-textBox" value="<?php echo $plain; ?>" id="plain">
-            <input type="text" class="paymee-textBox" value="<?php echo $uuid; ?>" id="uuid">
-            <input type="text" class="paymee-textBox" value="<?php echo Mage::getUrl('paymee/checkout/checkPix', array('_secure' => true)); ?>" id="paymee-url">
-            <input type="text" class="paymee-textBox" value="<?php echo Mage::getUrl('customer/account/'); ?>" id="customer-url">
-            <button class="btn-paymee" onclick="copyPlain()">Copiar Código</button>
-            <div class="buttons-set-pedidos">
-                <a type="button" title="<?php echo $this->__('IR PARA MEUS PEDIDOS') ?>" class="button"
-                   href="<?php echo Mage::getUrl('customer/account/'); ?>" target="_blank">
-                        <span>
-                            <span>
-                                <?php echo $this->__('IR PARA MEUS PEDIDOS') ?>
-                            </span>
-                        </span>
-                </a>
+            <div class="alert" id="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <strong>Sucesso!</strong> Seu pagamento via pix foi confirmado!
             </div>
-        <?php endif; ?>
-    </div>
+        </div>
+    <?php endif; ?>
 </div>
 
 <script>

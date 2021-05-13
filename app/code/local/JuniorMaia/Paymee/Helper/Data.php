@@ -13,11 +13,11 @@ class JuniorMaia_Paymee_Helper_Data extends Mage_Core_Helper_Abstract
             array('code' => '341', 'name' => '341 - Depósito Identificado Itaú',         'value' => 'ITAU_DI'),
             array('code' => '104', 'name' => '104 - Caixa Econômica Federal',           'value' => 'CEF_TRANSFER'),
             array('code' => '202', 'name' => '202 - Banco Original S.A',                'value' => 'ORIGINAL_TRANSFER'),
-            array('code' => '033', 'name' => '033 - Banco Santander S.A (Transfer)',    'value' => 'SANTANDER_TRANSFER'),
-            array('code' => '033', 'name' => '033 - Banco Santander S.A (Cash)',        'value' => 'SANTANDER_DI'),
+            array('code' => '033', 'name' => '033 - Banco Santander S.A',               'value' => 'SANTANDER_TRANSFER'),
+            array('code' => '033', 'name' => '033 - Banco Santander S.A (Depósito em dinheiro)',        'value' => 'SANTANDER_DI'),
             array('code' => '077', 'name' => '077 - Banco Inter S.A',                   'value' => 'INTER_TRANSFER'),
             array('code' => '077', 'name' => '077 - Banco Inter S.A (BS2)',             'value' => 'BS2_TRANSFER'),
-            array('code' => '0', 'name' => 'OUTROS BANCOS',                             'value' => 'OUTROS_BANCOS'),
+            //array('code' => '0', 'name' => 'OUTROS BANCOS',                             'value' => 'OUTROS_BANCOS'),
         );
 
         return $banks;

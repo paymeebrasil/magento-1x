@@ -16,10 +16,31 @@ jQuery(document).ready(function() {
                 success: function (data) {
                     if (data == 'PAID') {
                         console.log('Pagamento aprovado!');
-                        window.location.href = customerUrl;
+                        document.getElementById('container').style.display = 'none';
+                        document.getElementById('alert').style.display = 'block';
                     }
                 },
             })
         },6000);
+    }
+
+    var fiveMinutes = 60 * 10, display = document.querySelector('#tempo');
+    startTimer(fiveMinutes, display);
+
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = "Tempo restante "+ minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
     }
 });

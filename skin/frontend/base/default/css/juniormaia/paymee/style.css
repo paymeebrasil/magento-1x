@@ -84,26 +84,16 @@
 
 .btn-paymee {
     color: #fff;
-    background-color: #0275d8;
-    border-color: #0275d8;
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    -webkit-user-select: none;
+    background-color: #009688;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     border: 1px solid transparent;
     padding: .3rem 1rem;
     font-size: 1rem;
-    border-radius: .25rem;
-    -webkit-transition: all .2s ease-in-out;
     -o-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    vertical-align: top;
     display: block;
-    margin-left: 36%;
+    margin-left: auto;
     margin-right: auto;
 }
 
@@ -120,78 +110,125 @@
 }
 
 .paymee-img-pix {
-    border: 0;
-    vertical-align: top;
-    display: block;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 40px;
+    margin-bottom: 15px;
 }
 
-.checkout-onepage-success div.box-paymee {
-    width: 300px;
-    display: inline-block;
-    margin-bottom: 3%;
+.container {
+    width: 60%;
+    /*border: 1px solid red;*/
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 550px;
+}
+.box {
+    margin-bottom: 0px;
+    box-sizing: border-box;
+    display: flex;
+    margin-left: 33%;
 }
 
-.qr-subtitle {
-    margin-left: 17%;
+.checkout-onepage-success .payment-pix .container h1 {
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    margin-bottom: 30px;
+}
+
+.checkout-onepage-success .payment-pix .container .tempo {
+    font-size: 14px;
+    font-weight: 600;
+    color: #9e9e9e;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.checkout-onepage-success .payment-pix .container .title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+.checkout-onepage-success .payment-pix .container .subtitles {
     font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.checkout-onepage-success .payment-pix  .alert {
+    padding: 15px;
+    background-color: #4caf50;
+    color: white;
+    display: none;
+}
+
+.checkout-onepage-success .payment-pix  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.checkout-onepage-success .payment-pix  .closebtn:hover {
+    color: black;
 }
 
 @media only screen and (max-width: 770px) {
-    .checkout-onepage-success .paymee-instructions .instructions h1 {
-        margin-left: 7%;
-        margin-top: 2%;
-        margin-bottom: 5%;
-    }
-
-    .btn-paymee {
-        color: #fff;
-        background-color: #0275d8;
-        border-color: #0275d8;
-        display: inline-block;
-        font-weight: 400;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        border: 1px solid transparent;
-        padding: .3rem 1rem;
-        font-size: 1rem;
-        border-radius: .25rem;
-        -webkit-transition: all .2s ease-in-out;
-        -o-transition: all .2s ease-in-out;
-        transition: all .2s ease-in-out;
-        vertical-align: top;
+    .container {
+        width: 100%;
         display: block;
-        margin-left: 10%;
-        margin-right: auto;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 550px;
+    }
+    .box {
+        margin-bottom: 0px;
+        box-sizing: border-box;
+        display: flex;
+        margin-left: 5%;
     }
 
-    .checkout-onepage-success .buttons-set-pedidos {
-        clear: both;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #ededed;
-        margin-left: 7%;
-        margin-top: 2%;
-    }
-
-    .checkout-onepage-success div.box-paymee {
-        width: 300px;
-        margin-bottom: 3%;
-        display: block;
-    }
-
-    .paymee-img-pix {
-        border: 0;
-        vertical-align: top;
-        display: block;
+    .checkout-onepage-success .payment-pix .container h1 {
         margin-left: auto;
         margin-right: auto;
-        width: 210px;
-        height: 75px;
+        color: black;
+        margin-bottom: 30px;
+    }
+
+    .checkout-onepage-success .payment-pix .container .tempo {
+        font-size: 14px;
+        font-weight: 600;
+        color: #9e9e9e;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+    }
+
+    .checkout-onepage-success .payment-pix .container .title {
+        font-size: 14px;
+        font-weight: 600;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+    }
+
+    .checkout-onepage-success .payment-pix .container .subtitles {
+        font-size: 12px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        text-align: center;
     }
 }
