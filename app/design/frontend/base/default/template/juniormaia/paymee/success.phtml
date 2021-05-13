@@ -46,6 +46,16 @@
                 <br>
                 <input type="text" class="paymee-textBox" value="<?php echo $plain; ?>>" id="plain">
                 <button class="btn-paymee" onclick="copyPlain()">Copiar Código</button>
+                <div class="buttons-set-pedidos">
+                    <a type="button" title="<?php echo $this->__('IR PARA MEUS PEDIDOS') ?>" class="button"
+                       href="<?php echo Mage::getUrl('customer/account/'); ?>" target="_blank">
+                        <span>
+                            <span>
+                                <?php echo $this->__('IR PARA MEUS PEDIDOS') ?>
+                            </span>
+                        </span>
+                    </a>
+                </div>
             <?php endif; ?>
         </ul>
     </div>

@@ -23,6 +23,15 @@
     border-bottom: 1px solid #ededed;
     text-align: right;
 }
+
+.checkout-onepage-success .buttons-set-pedidos {
+    clear: both;
+    margin: 10px 0 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ededed;
+    text-align: center;
+}
+
 .checkout-onepage-success .advice {
     width: 500px;
     margin: 0 auto;
