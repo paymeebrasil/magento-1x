@@ -26,7 +26,7 @@
     <li>
         <label class="required"><em>*</em><?php echo $this->__('Agência') ?></label>
         <div class="input-box">
-            <input type="text" id="paymee_branch" name="payment[paymee_branch]" title="<?php echo $this->__('Branch') ?>" class="input-text required-entry" value="<?php echo $this->htmlEscape($this->getInfoData('branch')) ?>"/>
+            <input type="text" id="paymee_branch" name="payment[paymee_branch]" title="<?php echo $this->__('Branch') ?>" class="input-text required-entry" value="<?php echo $this->htmlEscape($this->getInfoData('branch')) ?>" maxlength="6"/>
         </div>
     </li>
     <li>
