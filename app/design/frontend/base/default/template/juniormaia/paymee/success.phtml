@@ -9,13 +9,13 @@
     $plain          = $body['instructions']['qrCode']['plain'];
     ?>
 
-    <input type="text" class="paymee-textBox" value="<?php echo $body['instructions']['name']; ?>" id="paymee-method">
+    <input type="text" class="paymee-textBox" value="<?php echo $body['instructions']['chosen']; ?>" id="paymee-method">
     <input type="text" class="paymee-textBox" value="<?php echo $plain; ?>" id="plain">
     <input type="text" class="paymee-textBox" value="<?php echo $uuid; ?>" id="uuid">
     <input type="text" class="paymee-textBox" value="<?php echo Mage::getUrl('paymee/checkout/checkPix', array('_secure' => true)); ?>" id="paymee-url">
     <input type="text" class="paymee-textBox" value="<?php echo Mage::getUrl('customer/account/'); ?>" id="customer-url">
 
-    <?php if ($body['instructions']['name'] != 'PIX'): ?>
+    <?php if ($body['instructions']['chosen'] != 'PIX'): ?>
         <div class="instructions">
             <h1>Dados para transferência</h1>
             <ul>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="box">
-                    <img id='barcode' class="paymee-img-qr" src="https://api.qrserver.com/v1/create-qr-code/?data='<?php echo $qrcode; ?>'&amp;size=180x180" title="PayMee" width="200" height="200" />
+                    <img id='barcode' class="paymee-img-qr" src="<?php echo $qrcode; ?>" title="PayMee" width="200" height="200" />
                 </div>
 
                 <div class="box">
@@ -71,9 +71,12 @@
 
             <div class="alert" id="alert">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                <strong>Sucesso!</strong> Seu pagamento via pix foi confirmado!
+                <strong>Sucesso!</strong> Seu pagamento foi realizado!
             </div>
         </div>
+
+
+
     <?php endif; ?>
 </div>
 
