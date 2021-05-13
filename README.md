@@ -18,7 +18,8 @@ Banks:
 
 ## Requirements to integrate
 - [PHP 5.6+](https://www.php.net)
-- [Magento 1.9.x](https://magento.com/tech-resources/download)
+- [Magento 1.x](https://magento.com/tech-resources/download)
+- [OpenMage](https://www.openmage.org/)
 
 ## OSC Compatibles
 - Inovarti Onestep Checkout
