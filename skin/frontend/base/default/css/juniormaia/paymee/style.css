@@ -7,7 +7,7 @@
     list-style-position: inside;
 }
 .checkout-onepage-success .paymee-instructions .instructions {
-    width: 500px;
+    width: 800px;
     margin: 0 auto;
 }
 .checkout-onepage-success .paymee-instructions .instructions ul li {
@@ -16,6 +16,13 @@
 .checkout-onepage-success .paymee-instructions .instructions p {
     text-align: left;
 }
+
+.checkout-onepage-success .paymee-instructions .instructions h1 {
+    margin-left: 40%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
 .checkout-onepage-success .buttons-set {
     clear: both;
     margin: 10px 0 0;
@@ -104,10 +111,86 @@
     display: none;
 }
 
-.paymee-img {
+.paymee-img-qr {
     border: 0;
     vertical-align: top;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.paymee-img-pix {
+    border: 0;
+    vertical-align: top;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.checkout-onepage-success div.box-paymee {
+    width: 300px;
+    display: inline-block;
+    margin-bottom: 3%;
+}
+
+.qr-subtitle {
+    margin-left: 17%;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 770px) {
+    .checkout-onepage-success .paymee-instructions .instructions h1 {
+        margin-left: 7%;
+        margin-top: 2%;
+        margin-bottom: 5%;
+    }
+
+    .btn-paymee {
+        color: #fff;
+        background-color: #0275d8;
+        border-color: #0275d8;
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: .3rem 1rem;
+        font-size: 1rem;
+        border-radius: .25rem;
+        -webkit-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+        vertical-align: top;
+        display: block;
+        margin-left: 10%;
+        margin-right: auto;
+    }
+
+    .checkout-onepage-success .buttons-set-pedidos {
+        clear: both;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ededed;
+        margin-left: 7%;
+        margin-top: 2%;
+    }
+
+    .checkout-onepage-success div.box-paymee {
+        width: 300px;
+        margin-bottom: 3%;
+        display: block;
+    }
+
+    .paymee-img-pix {
+        border: 0;
+        vertical-align: top;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 210px;
+        height: 75px;
+    }
 }
