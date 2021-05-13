@@ -11,6 +11,7 @@
         <reference name="head">
             <action method="addItem"><type>skin_css</type><name>css/juniormaia/paymee/style.css</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/juniormaia/paymee/paymee.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/juniormaia/paymee/clipboard.min.js</name></action>
         </reference>
         <reference name="content">
             <block type="checkout/onepage_success" name="checkout.success.paymee" template="juniormaia/paymee/success.phtml"/>
@@ -20,6 +21,7 @@
         <reference name="head">
             <action method="addItem"><type>skin_css</type><name>css/juniormaia/paymee/style.css</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>js/juniormaia/paymee/paymee.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/juniormaia/paymee/clipboard.min.js</name></action>
         </reference>
         <reference name="content">
             <block type="checkout/onepage_success" name="checkout.success.paymee" template="juniormaia/paymee/success.phtml"/>
