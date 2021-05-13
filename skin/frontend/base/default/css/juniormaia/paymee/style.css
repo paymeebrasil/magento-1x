@@ -18,7 +18,7 @@
 }
 
 .checkout-onepage-success .paymee-instructions .instructions h1 {
-    margin-left: 40%;
+    margin-left: 33%;
     margin-top: 2%;
     margin-bottom: 5%;
 }
@@ -36,7 +36,7 @@
     margin: 10px 0 0;
     padding-bottom: 10px;
     border-bottom: 1px solid #ededed;
-    text-align: center;
+    text-align: right;
 }
 
 .checkout-onepage-success .advice {
@@ -103,7 +103,7 @@
     transition: all .2s ease-in-out;
     vertical-align: top;
     display: block;
-    margin-left: auto;
+    margin-left: 36%;
     margin-right: auto;
 }
 
@@ -125,6 +125,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 40px;
 }
 
 .checkout-onepage-success div.box-paymee {

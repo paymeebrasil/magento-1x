@@ -74,13 +74,10 @@ class JuniorMaia_Paymee_Helper_Api extends Mage_Core_Helper_Abstract
         }
     }
 
-    public function checkTransactionStatus($obj) {
+    public function checkTransactionStatus($uuid) {
 
         try {
-
-            if($obj['order']->getStatus() !== 'pending') {
-                return false;
-            }
+            Mage::helper('juniormaia_paymee')->logs(" ----- Check Payment Status API ------");
 
             $x_api_key      = Mage::helper('juniormaia_paymee')->getApiKey();
             $x_api_token    = Mage::helper('juniormaia_paymee')->getApiToken();
@@ -90,7 +87,7 @@ class JuniorMaia_Paymee_Helper_Api extends Mage_Core_Helper_Abstract
                 $url = 'https://apisandbox.paymee.com.br/';
             }
 
-            $url = $url."paymee.com.br/v1.1/transactions/" . $obj['payload']['saleToken'];
+            $url = $url."v1.1/transactions/{$uuid}";
 
             $curl = curl_init();
             curl_setopt_array($curl, array(
@@ -104,6 +101,9 @@ class JuniorMaia_Paymee_Helper_Api extends Mage_Core_Helper_Abstract
             ));
 
             $response = curl_exec($curl);
+
+            Mage::helper('juniormaia_paymee')->logs($response);
+
             $err = curl_error($curl);
             curl_close($curl);
 
@@ -118,7 +118,9 @@ class JuniorMaia_Paymee_Helper_Api extends Mage_Core_Helper_Abstract
                 return false;
             }
 
-            return $responseData['situation'] === 'PAID';
+            Mage::helper('juniormaia_paymee')->logs($responseData['situation']);
+
+            return $responseData['situation'];
         }
         catch(Exception $e) {
             print_r($e->getmessage());

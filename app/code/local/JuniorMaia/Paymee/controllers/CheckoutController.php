@@ -99,4 +99,17 @@ class JuniorMaia_Paymee_CheckoutController extends Mage_Core_Controller_Front_Ac
 
         $this->_redirect('checkout/onepage/success');
     }
+
+    public function checkPixAction() {
+        try {
+            $uuid = $this->getRequest()->getParam('uuid');
+            if ($uuid) {
+                $paymentStatus = Mage::helper('juniormaia_paymee/api')->checkTransactionStatus($uuid);
+                echo $paymentStatus;
+                return $paymentStatus;
+            }
+        } catch (Exception $e) {
+            Mage::helper('juniormaia_paymee')->logs($e->getmessage());
+        }
+    }
 }
