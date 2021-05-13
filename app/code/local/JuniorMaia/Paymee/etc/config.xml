@@ -83,6 +83,13 @@
     </global>
 
     <frontend>
+        <layout>
+            <updates>
+                <juniormaia_paymee>
+                    <file>paymee.xml</file>
+                </juniormaia_paymee>
+            </updates>
+        </layout>
         <routers>
             <juniormaia_paymee>
                 <use>standard</use>
@@ -94,13 +101,6 @@
             </juniormaia_paymee>
         </routers>
     </frontend>
-    <layout>
-        <updates>
-            <juniormaia_paymee>
-                <file>paymee.xml</file>
-            </juniormaia_paymee>
-        </updates>
-    </layout>
     <admin>
         <routers>
             <adminhtml>
