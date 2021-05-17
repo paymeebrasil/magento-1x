@@ -29,7 +29,7 @@ class JuniorMaia_Paymee_Model_Observer {
                 if(!$response["success"]) {
                     Mage::getSingleton('core/session')->addError('PayMee error:<br/>' .  $response['message']);
                 } else {
-                    Mage::getSingleton('connect/session')->addSuccess("Total de {$totalRefund} no pedido {$order->getIncrementId()} UUID {$paymee_uuid} reembolsado com sucesso!");
+                    Mage::getSingleton('core/session')->addSuccess("Total de {$totalRefund} no pedido {$order->getIncrementId()} UUID {$paymee_uuid} reembolsado com sucesso!");
                 }
             }
         } catch (Exception $e) {
