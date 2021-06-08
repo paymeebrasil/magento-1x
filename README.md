@@ -27,15 +27,8 @@ Banks:
 - Moip Checkout
 - Onepage
 
-## Modman Instalation
-modman: https://github.com/jrmaia/modman
-
-    $ cd /dir/magento/magento1x
-    $ modman init
-    $ modman clone https://github.com/jrmaia/paymee/
-
 ## Git Instalation
-    $ git clone https://github.com/jrmaia/paymee.git ~/paymee
+    $ git clone https://github.com/paymeebrasil/magento-1x.git ~/paymee
     $ cp -r ~/paymee/* /dir/magento1x/
 
 ## API Reference
