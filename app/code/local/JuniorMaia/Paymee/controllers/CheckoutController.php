@@ -32,6 +32,7 @@ class JuniorMaia_Paymee_CheckoutController extends Mage_Core_Controller_Front_Ac
             "currency"          => "BRL",
             "amount"            => (float)$amount,
             "referenceCode"     => $referenceCode,
+            "discriminator"     => Mage::helper('juniormaia_paymee')->getDiscriminator(),
             "maxAge"            => Mage::helper('juniormaia_paymee')->getMaxAge(),
             "paymentMethod"     => $paymentMethod,
             "callbackURL"       => Mage::getUrl('paymee/webhook/index/'),

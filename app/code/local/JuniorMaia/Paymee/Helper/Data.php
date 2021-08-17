@@ -31,6 +31,10 @@ class JuniorMaia_Paymee_Helper_Data extends Mage_Core_Helper_Abstract
         return Mage::getStoreConfig('payment/juniormaia_paymee/x_api_token');
     }
 
+    public function getDiscriminator() {
+        return Mage::getStoreConfig('payment/juniormaia_paymee/discriminator');
+    }
+
     public function getEnvironmentSandbox() {
         if (Mage::getStoreConfig('payment/juniormaia_paymee/sandbox')){
             return true;
