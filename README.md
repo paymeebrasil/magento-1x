@@ -31,5 +31,8 @@ Banks:
     $ git clone https://github.com/paymeebrasil/magento-1x.git ~/paymee
     $ cp -r ~/paymee/* /dir/magento1x/
 
+## Callback PIX Url
+	$ domain.com.br/paymee/webhook
+
 ## API Reference
 https://documenter.getpostman.com/view/3199663/RWM6zDGc?version=latest
