@@ -1,0 +1,80 @@
+<div class="paymee-instructions">
+    <?php $paymeeInstructions = Mage::getSingleton('core/session')->getData('paymee_instructions'); ?>
+    <?php
+    $responsePaymee = json_decode($paymeeInstructions, true);
+    $body           =  $responsePaymee['response'];
+    $steps          = $body['instructions']['steps'];
+    $uuid           = $body['uuid'];
+    $qrcode         = $body['instructions']['qrCode']['url'];
+    $plain          = $body['instructions']['qrCode']['plain'];
+    ?>
+
+    <input type="text" class="paymee-textBox" value="<?php echo $body['instructions']['chosen']; ?>" id="paymee-method">
+    <input type="text" class="paymee-textBox" value="<?php echo $plain; ?>" id="plain">
+    <input type="text" class="paymee-textBox" value="<?php echo $uuid; ?>" id="uuid">
+    <input type="text" class="paymee-textBox" value="<?php echo Mage::getUrl('paymee/checkout/checkPix', array('_secure' => true)); ?>" id="paymee-url">
+    <input type="text" class="paymee-textBox" value="<?php echo Mage::getUrl('customer/account/'); ?>" id="customer-url">
+
+    <?php if ($body['instructions']['chosen'] != 'PIX'): ?>
+        <div class="instructions">
+            <h1>Dados para transferência</h1>
+            <ul>
+                <li><span>Banco: <strong><?php echo $body['instructions']['name'] ?></strong></span></li>
+                <li><span>Agência: <strong><?php echo $body['instructions']['beneficiary_branch'] ?></strong></span></li>
+                <li><span>Conta-Corrente: <strong><?php echo $body['instructions']['beneficiary_account'] ?></strong></span></li>
+                <li><span>Favorecido: <strong><?php echo $body['instructions']['beneficiary_name'] ?></strong></span></li>
+                <li><span>Valor: <strong>R$ <?php echo number_format($body['amount'], 2, ',', '.') ?></strong></span></li>
+                <div class="advice">
+                    <span>Realize a transferência bancária no valor exato do seu pedido.</span>
+                </div>
+                <div class="buttons-set">
+                    <a type="button" title="<?php echo $this->__('IR PARA INTERNET BANKING') ?>" class="button"
+                       href="<?php echo $body['instructions']['redirect_urls']['desktop'] ?>" target="_blank">
+                        <span>
+                            <span>
+                                <?php echo $this->__('IR PARA INTERNET BANKING') ?>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </ul>
+        </div>
+    <?php else: ?>
+        <div class="payment-pix">
+            <div class="container" id="container">
+                <div class="box">
+                    <h1>Pagamento via PIX</h1>
+                </div>
+
+                <div class="box">
+                    <img src="https://www.bcb.gov.br/content/estabilidadefinanceira/piximg/logo_pix.png" class="paymee-img-pix" width="180" height="64"/>
+                </div>
+
+                <div class="box">
+                    <span class="tempo" id="tempo">Tempo restante 10:00 minutos</span>
+                </div>
+
+                <div class="box">
+                    <img id='barcode' class="paymee-img-qr" src="<?php echo $qrcode; ?>" title="PayMee" width="200" height="200" />
+                </div>
+
+                <div class="box">
+                    <span class="title"><strong>Escaneie o código com o seu celular</strong></span>
+                </div>
+                <div class="box">
+                    <span class="subtitles">Abra o app do seu banco no celular, escolha Pix e aponte a câmera para o código</span>
+                </div>
+                <div class="box">
+                    <button class="btn btn-paymee" data-clipboard-text="<?php echo $plain; ?>">
+                        Copiar Código
+                    </button>
+                </div>
+            </div>
+
+            <div class="alert" id="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <strong>Sucesso!</strong> Seu pagamento foi realizado!
+            </div>
+        </div>
+    <?php endif; ?>
+</div>

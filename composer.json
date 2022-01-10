@@ -1,0 +1,12 @@
+{
+    "name": "paymeebrasil/magento-1x",
+    "description": "Payments Method to connect Paymee API with Magento 1.x",
+    "type": "composer-plugin",
+    "authors": [
+        {
+            "name": "Junior Maia",
+            "email": "comoquepode@gmail.com"
+        }
+    ],
+    "require": {}
+}
