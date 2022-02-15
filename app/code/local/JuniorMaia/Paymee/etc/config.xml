@@ -27,6 +27,7 @@
 
                 </entities>
             </juniormaia_paymee_resource>
+
         </models>
         <blocks>
             <juniormaia_paymee>
@@ -116,22 +117,38 @@
     <default>
         <payment>
             <juniormaia_paymee>
-                <model>juniormaia_paymee/standard</model>
                 <active>1</active>
                 <log>1</log>
                 <order_comment>1</order_comment>
                 <max_age>2880</max_age>
+            </juniormaia_paymee>
+            <juniormaia_paymee_transfer>
+                <model>juniormaia_paymee/standard</model>
+                <active>1</active>
                 <title>PayMee - Transferência</title>
                 <payment_action>sale</payment_action>
+                <order_status>pending</order_status>
                 <allowspecific>0</allowspecific>
                 <sort_order>1</sort_order>
-            </juniormaia_paymee>
+            </juniormaia_paymee_transfer>
             <juniormaia_paymee_pix>
                 <model>juniormaia_paymee/pix</model>
                 <active>1</active>
                 <title>PayMee - Pix</title>
-                <payment_action>sale</payment_action>
+                <order_status>pending</order_status>
+                <payment_action>order</payment_action>
+                <allowspecific>0</allowspecific>
+                <sort_order>2</sort_order>
             </juniormaia_paymee_pix>
+            <juniormaia_paymee_boleto>
+                <model>juniormaia_paymee/boleto</model>
+                <active>1</active>
+                <title>PayMee - Boleto</title>
+                <order_status>pending</order_status>
+                <payment_action>order</payment_action>
+                <allowspecific>0</allowspecific>
+                <sort_order>3</sort_order>
+            </juniormaia_paymee_boleto>
         </payment>
     </default>
 </config>

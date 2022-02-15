@@ -1,0 +1,38 @@
+<p><img src="https://www.paymee.com.br/wp-content/uploads/2019/07/PayMee_New.png" width="120" height="30"/></p>
+<p><?php echo $this->escapeHtml($this->__($this->getMethod()->getTitle())) ?></p>
+<?php
+$orderId    = $this->getInfo()->getParentId();
+$order      = Mage::getModel('sales/order')->load($orderId);
+?>
+
+<?php
+if ($this->getMethod()->getCode() == 'juniormaia_paymee_pix') {
+    if ($this->getInfo()->getAdditionalInformation('paymee_pix_qrcode')) {
+        $qrcode = $this->getInfo()->getAdditionalInformation('paymee_pix_qrcode');
+        echo "<img id='barcode' src='".$qrcode."' title='PayMee' width='200' height='200' />";
+    }
+    if ($this->getInfo()->getAdditionalInformation('paymee_pix_plain')) {
+        echo "<p>".$this->__('Plain: <strong>%s</strong>', $this->getInfo()->getAdditionalInformation('paymee_pix_plain'))."</p>";
+    }
+}
+?>
+
+<?php
+if ($this->getMethod()->getCode() == 'juniormaia_paymee_transfer') {
+    if ($this->getInfo()->getAdditionalInformation('paymee_cpf')) {
+        echo "<p>".$this->__('CPF: <strong>%s</strong>', $this->getInfo()->getAdditionalInformation('paymee_cpf'))."</p>";
+    }
+
+    if ($this->getInfo()->getAdditionalInformation('paymee_banco')) {
+        echo "<p>".$this->__('Banco: <strong>%s</strong>', $this->getInfo()->getAdditionalInformation('paymee_banco'))."</p>";
+    }
+
+    if ($this->getInfo()->getAdditionalInformation('paymee_branch')) {
+        echo "<p>".$this->__('Branch: <strong>%s</strong>', $this->getInfo()->getAdditionalInformation('paymee_branch'))."</p>";
+    }
+
+    if ($this->getInfo()->getAdditionalInformation('paymee_account')) {
+        echo "<p>".$this->__('Account: <strong>%s</strong>', $this->getInfo()->getAdditionalInformation('paymee_account'))."</p>";
+    }
+}
+?>

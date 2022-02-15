@@ -64,4 +64,38 @@ class JuniorMaia_Paymee_Helper_Data extends Mage_Core_Helper_Abstract
             Mage::log($message, null, 'juniormaia_paymee.log', true);
         }
     }
+
+    public function invoiceOrder($order)
+    {
+        try {
+            if ($order->canInvoice()) {
+                $invoice = Mage::getModel('sales/service_order', $order)->prepareInvoice();
+                $invoice->setRequestedCaptureCase(Mage_Sales_Model_Order_Invoice::CAPTURE_OFFLINE);
+                $invoice->register();
+                $invoice->getOrder()->setCustomerNoteNotify(false);
+                $invoice->getOrder()->setIsInProcess(true);
+
+                $transactionSave = Mage::getModel('core/resource_transaction')
+                    ->addObject($invoice)
+                    ->addObject($invoice->getOrder());
+
+                $transactionSave->save();
+
+                $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING, true);
+                $status = Mage::getModel('sales/order_status_history')
+                    ->setOrder($order)
+                    ->setStatus($order->getStatus())
+                    ->setComment("PayMee - Pagamento Aprovado")
+                    ->setEntityName(Mage_Sales_Model_Order::HISTORY_ENTITY_NAME);
+                $order->addStatusHistory($status);
+                $order->save();
+
+                Mage::helper('juniormaia_paymee')->logs(" ----- Success Invoice ------ ");
+            } else {
+                Mage::helper('juniormaia_paymee')->logs(" ----- Cannot Create Invoice ------ ");
+            }
+        } catch (Exception $e) {
+            Mage::helper('juniormaia_paymee')->logs($e->getMessage());
+        }
+    }
 }

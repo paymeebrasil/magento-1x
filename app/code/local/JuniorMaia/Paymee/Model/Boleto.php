@@ -1,28 +1,30 @@
 <?php
 
-class JuniorMaia_Paymee_Model_Pix extends Mage_Payment_Model_Method_Abstract
+class JuniorMaia_Paymee_Model_Boleto extends Mage_Payment_Model_Method_Abstract
 {
 
-    protected $_code = 'juniormaia_paymee_pix';
+    protected $_code = 'juniormaia_paymee_boleto';
 
     protected $_isGateway                   = true;
     protected $_canUseForMultishipping      = false;
     protected $_isInitializeNeeded          = true;
     protected $_canUseInternal              = true;
 
-    protected $_formBlockType = 'juniormaia_paymee/form_pix';
-    protected $_infoBlockType = 'juniormaia_paymee/info_paymee';
+    protected $_formBlockType = 'juniormaia_paymee/form_boleto';
+    protected $_infoBlockType = 'juniormaia_paymee/info_boleto';
 
     protected $_canOrder  = true;
 
     public function assignData($data)
     {
         $info = $this->getInfoInstance();
-
         $info->setAdditionalInformation('paymee_cpf', $data->getPaymeeCpf());
-        $info->setAdditionalInformation('paymee_banco', $data->getPaymeeBanco());
-        $info->setAdditionalInformation('paymee_branch', $data->getPaymeeBranch());
-        $info->setAdditionalInformation('paymee_account', $data->getPaymeeAccount());
+        $info->setAdditionalInformation('paymee_boleto_installments', $data->getPaymeeBoletoInstallments());
+
+        if ($data->getProposalId())
+        {
+            $info->setAdditionalInformation('paymee_proposal_id', $data->getProposalId());
+        }
 
         return $this;
     }
@@ -46,7 +48,7 @@ class JuniorMaia_Paymee_Model_Pix extends Mage_Payment_Model_Method_Abstract
      */
     public function getOrderPlaceRedirectUrl()
     {
-        return Mage::getUrl('paymee/checkout/payment', array('_secure' => true));
+        return Mage::getUrl('paymee/checkout/loansCreate', array('_secure' => true));
     }
 
 }

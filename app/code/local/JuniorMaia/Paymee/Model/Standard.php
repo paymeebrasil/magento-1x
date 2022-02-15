@@ -3,7 +3,7 @@
 class JuniorMaia_Paymee_Model_Standard extends Mage_Payment_Model_Method_Abstract
 {
 
-    protected $_code  = 'juniormaia_paymee';
+    protected $_code  = 'juniormaia_paymee_transfer';
     protected $_formBlockType = 'juniormaia_paymee/form_paymee';
     protected $_infoBlockType = 'juniormaia_paymee/info_paymee';
 

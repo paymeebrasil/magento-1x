@@ -18,7 +18,6 @@
 }
 
 .checkout-onepage-success .paymee-instructions .instructions h1 {
-    margin-left: 33%;
     margin-top: 2%;
     margin-bottom: 5%;
 }
@@ -169,7 +168,7 @@
     display: none;
 }
 
-.checkout-onepage-success .payment-pix  .closebtn {
+.checkout-onepage-success .closebtn {
     margin-left: 15px;
     color: white;
     font-weight: bold;
@@ -184,6 +183,75 @@
     color: black;
 }
 
+/* Boleto */
+.checkout-onepage-success .payment-boleto .container {
+    width: 75%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 170px;
+}
+
+.checkout-onepage-success .payment-boleto .container h1 {
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+}
+
+.checkout-onepage-success .payment-boleto .container .title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.checkout-onepage-success .payment-boleto .container .subtitles {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.checkout-onepage-success .payment-boleto .li-item-checkout {
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.checkout-onepage-success .payment-boleto .send-documents {
+    font-size: 14px;
+    margin-right: auto;
+}
+
+.checkout-onepage-success .payment-boleto .input-upload {
+    margin-bottom: 5px;
+}
+
+.checkout-onepage-success .payment-boleto .button_send_documents {
+    margin-bottom: 5px;
+}
+
+.checkout-onepage-success .payment-boleto .buttons-set {
+    clear: both;
+    margin: 10px 0 0;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.checkout-onepage-success .payment-boleto  .alert {
+    padding: 15px;
+    background-color: #4caf50;
+    color: white;
+    display: none;
+    margin-left: 30%;
+}
+
+.checkout-onepage-success .payment-boleto  .boleto {
+    background-color: white;
+}
+
+
 @media only screen and (max-width: 770px) {
     .container {
         width: 100%;
@@ -191,7 +259,7 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        height: 550px;
+        height: 180px;
     }
     .box {
         margin-bottom: 0px;

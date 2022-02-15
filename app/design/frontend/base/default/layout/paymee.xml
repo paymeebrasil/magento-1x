@@ -7,6 +7,13 @@
             <action method="addItem"><type>skin_js</type><name>js/juniormaia/paymee/inputs.js</name></action>
         </reference>
     </checkout_onepage_index>
+    <onepagecheckout_index_index translate="label">
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>css/juniormaia/paymee/style.css</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/juniormaia/paymee/jquery/jquery.mask.latest.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/juniormaia/paymee/inputs.js</name></action>
+        </reference>
+    </onepagecheckout_index_index>
     <checkout_onepage_success>
         <reference name="head">
             <action method="addItem"><type>skin_css</type><name>css/juniormaia/paymee/style.css</name><params/></action>

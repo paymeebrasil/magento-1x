@@ -30,7 +30,7 @@ class JuniorMaia_Paymee_WebhookController extends Mage_Core_Controller_Front_Act
                 switch ($receipt_payload['newStatus']) {
                     case 'PAID':
                         $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING, true);
-                        $this->invoiceOrder($order);
+                        Mage::helper('juniormaia_paymee')->invoiceOrder($order);
                         $orderComment = "PayMee - Pagamento Aprovado";
                         break;
                     case 'CANCELLED':
@@ -61,32 +61,6 @@ class JuniorMaia_Paymee_WebhookController extends Mage_Core_Controller_Front_Act
             Mage::helper('juniormaia_paymee')->logs(" ----- Success Order Cancel ------ ");
         } else {
             Mage::helper('juniormaia_paymee')->logs(" ----- Cannot Cancel Order ------ ");
-        }
-    }
-
-    public function invoiceOrder($order)
-    {
-        Mage::helper('juniormaia_paymee')->logs(" ----- Webhook Order Invoice ------ ");
-        try {
-            if ($order->canInvoice()) {
-                $invoice = Mage::getModel('sales/service_order', $order)->prepareInvoice();
-                $invoice->setRequestedCaptureCase(Mage_Sales_Model_Order_Invoice::CAPTURE_OFFLINE);
-                $invoice->register();
-                $invoice->getOrder()->setCustomerNoteNotify(false);
-                $invoice->getOrder()->setIsInProcess(true);
-
-                $transactionSave = Mage::getModel('core/resource_transaction')
-                    ->addObject($invoice)
-                    ->addObject($invoice->getOrder());
-
-                $transactionSave->save();
-
-                Mage::helper('juniormaia_paymee')->logs(" ----- Success Invoice ------ ");
-            } else {
-                Mage::helper('juniormaia_paymee')->logs(" ----- Cannot Create Invoice ------ ");
-            }
-        } catch (Exception $e) {
-            Mage::helper($e->getMessage());
         }
     }
 }
